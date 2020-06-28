@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% from '_formhelper.html' import render_field with context %}
+
+{% block body%}
+    <div class="container">
+        <form action="/login/" method="post">
+            {{ form.csrf_token }}
+            {{render_field(form.uname,cls="form-control",errcls='is-invalid',placeholder='User Name')}}
+            {{render_field(form.pwd,cls="form-control",errcls='is-invalid',placeholder='Password')}}
+            <input type="submit"class="btn btn-primary" value="Login">
+
+        </form>
+    </div>
+{% endblock %}
