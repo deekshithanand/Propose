@@ -1,0 +1,15 @@
+{% extends 'base.html'%}
+{% from '_formhelper.html' import render_field with context %}
+
+{%block body %}
+    <div class="container">
+        <form action="/create_topic/" method="post">
+            {{ form.csrf_token }}
+            {{render_field(form.topic_name,cls="form-control")}}
+            {{render_field(form.topic_description,cls="form-control")}}
+            <input type="submit"class="btn btn-primary" value="Create Topic!">
+
+        </form>
+       
+    </div>
+{%endblock%}

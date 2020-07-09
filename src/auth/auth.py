@@ -4,9 +4,11 @@ from src.models import User
 from werkzeug.security import generate_password_hash, check_password_hash
 from src import db
 from sqlalchemy import exc
+
+#blueprint here
 auth_bp = Blueprint('auth', __name__, template_folder='templates')
 
-
+#routes
 @auth_bp.route('/signup/', methods=['GET', 'POST'])
 def signup():
 

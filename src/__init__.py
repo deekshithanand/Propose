@@ -11,9 +11,10 @@ def create_app():
     with app.app_context():
         #import blue prints
         from .auth import auth
+        from .topics import topic
 
         app.register_blueprint(auth.auth_bp)
-    
+        app.register_blueprint(topic.topics_bp)
     
         
     return app

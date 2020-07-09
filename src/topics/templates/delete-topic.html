@@ -1,0 +1,26 @@
+{% extends 'base.html' %} {% block body %}
+<div class="container">
+  <div class="jumbotron">
+    <h2>
+      Are you sure you want to delete the topic space
+      <strong> "{{form.topic_name.data}} "</strong>?
+    </h2>
+    <h4>
+      Please be warned, this cant be undone!
+    </h4>
+    <div class="flex-wrap d-flex">
+        <form action="/delete_topic/{{id}}/" method="post">
+            {{form.csrf_token}}
+            <input type="submit" class="btn btn-danger" value="Trash it!" />
+            
+          </form>
+          <a href="/">
+              <button class="btn btn-warning">
+                Cancel
+              </button>
+            </a>
+    </div>
+    
+  </div>
+</div>
+{%endblock %}

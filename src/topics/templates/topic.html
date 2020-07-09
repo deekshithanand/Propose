@@ -1,0 +1,26 @@
+{%extends 'base.html'%} {%block body%}
+<div class="container d-flex flex-wrap ">
+  <a href="#" class="btn btn-primary">Add Topic</a>
+
+  {% if topics%} {% for topic in topics %}
+
+  <div class="card text-center" style="width: 18rem">
+    <div class="card-body">
+      <h5 class="card-title">{{ topic.name }}</h5>
+      <p class="card-text">{{ topic.description }}</p>
+      <a href="#" class="btn btn-primary">View Proposals!</a>
+      <a href="#" class="btn btn-warning">Edit</a>
+      <a href="#" class="btn btn-danger">Delete</a>
+    </div>
+  </div>
+  
+  {% endfor %} {%else%}
+  <div class="jumbotron text-center">
+    <p>
+      NO TOPICS YET!!! ADD SOME TOPIC FOR PROPOSAL!
+    </p>
+  </div>
+</div>
+{% endif %}
+
+{% endblock %}
