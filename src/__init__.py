@@ -12,9 +12,11 @@ def create_app():
         #import blue prints
         from .auth import auth
         from .topics import topic
+        from .posts import post
 
         app.register_blueprint(auth.auth_bp)
         app.register_blueprint(topic.topics_bp)
+        app.register_blueprint(post.post_bp)
     
         
     return app

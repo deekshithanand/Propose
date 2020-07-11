@@ -43,6 +43,18 @@ class Topic(db.Model):
     )
     def __repr__(self):
         return f'<Topic{self.name}>'
+    
+    post = db.relationship('Post',backref= 'topic')
+
+
+class Post(db.Model):
+    __tablename__ = "post"
+    id = db.Column(db.Integer,primary_key = True)
+    name = db.Column(db.String(200),unique = True,nullable = False)
+    description = db.Column(db.String(600),nullable = False) #user has to put something into the description
+    def __repr__(self):
+        return f'<Post{self.id}>'
+    topic_id = db.Column(db.Integer,db.ForeignKey('topic.id'))
 
 # class Person(db.Model):
 #     __tablename__ = 'person'
